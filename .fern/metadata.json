@@ -1,0 +1,14 @@
+{
+  "cliVersion": "5.112.0",
+  "generatorName": "fernapi/fern-python-sdk",
+  "generatorVersion": "5.29.3",
+  "generatorConfig": {
+    "package_name": "openantares",
+    "client_class_name": "Alpha"
+  },
+  "originGitCommit": "bb16875bf16c98a3e13434485cfb24fc28b90a94",
+  "originGitCommitIsDirty": false,
+  "invokedBy": "manual",
+  "requestedVersion": "0.1.0",
+  "sdkVersion": "0.1.0"
+}
