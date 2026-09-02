@@ -22,7 +22,6 @@ from .types.list_conflicts_request_status import ListConflictsRequestStatus
 from .types.list_findings_request_sort import ListFindingsRequestSort
 from .types.list_findings_request_source import ListFindingsRequestSource
 from .types.list_findings_request_type import ListFindingsRequestType
-from .types.list_tasks_request_owner import ListTasksRequestOwner
 from .types.list_tasks_request_status import ListTasksRequestStatus
 from .types.search_knowledge_request_type import SearchKnowledgeRequestType
 from pydantic import ValidationError
@@ -952,20 +951,17 @@ class RawKnowledgeClient:
         self,
         *,
         vault: typing.Optional[str] = OMIT,
-        owner: typing.Optional[ListTasksRequestOwner] = OMIT,
         status: typing.Optional[ListTasksRequestStatus] = OMIT,
         milestone_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DataResponse]:
         """
-        Action-plan tasks with the full board surface: id (for update_task), board identifier, t-shirt estimate, priority, labels, checklist, due date and milestone. owner "us" = our team, "client" = the counterparty; status "open" = everything not done.
+        Action-plan tasks with the full board surface: id (for update_task), board identifier, named owner, t-shirt estimate, priority, labels, checklist, due date and milestone. status "open" = everything not done.
 
         Parameters
         ----------
         vault : typing.Optional[str]
             Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
-
-        owner : typing.Optional[ListTasksRequestOwner]
 
         status : typing.Optional[ListTasksRequestStatus]
 
@@ -985,7 +981,6 @@ class RawKnowledgeClient:
             method="POST",
             json={
                 "vault": vault,
-                "owner": owner,
                 "status": status,
                 "milestoneId": milestone_id,
             },
@@ -3695,20 +3690,17 @@ class AsyncRawKnowledgeClient:
         self,
         *,
         vault: typing.Optional[str] = OMIT,
-        owner: typing.Optional[ListTasksRequestOwner] = OMIT,
         status: typing.Optional[ListTasksRequestStatus] = OMIT,
         milestone_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DataResponse]:
         """
-        Action-plan tasks with the full board surface: id (for update_task), board identifier, t-shirt estimate, priority, labels, checklist, due date and milestone. owner "us" = our team, "client" = the counterparty; status "open" = everything not done.
+        Action-plan tasks with the full board surface: id (for update_task), board identifier, named owner, t-shirt estimate, priority, labels, checklist, due date and milestone. status "open" = everything not done.
 
         Parameters
         ----------
         vault : typing.Optional[str]
             Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
-
-        owner : typing.Optional[ListTasksRequestOwner]
 
         status : typing.Optional[ListTasksRequestStatus]
 
@@ -3728,7 +3720,6 @@ class AsyncRawKnowledgeClient:
             method="POST",
             json={
                 "vault": vault,
-                "owner": owner,
                 "status": status,
                 "milestoneId": milestone_id,
             },

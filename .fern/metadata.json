@@ -3,12 +3,11 @@
   "generatorName": "fernapi/fern-python-sdk",
   "generatorVersion": "5.29.3",
   "generatorConfig": {
-    "package_name": "openantares",
+    "package_name": "alpha",
     "client_class_name": "Alpha"
   },
-  "originGitCommit": "bb16875bf16c98a3e13434485cfb24fc28b90a94",
+  "originGitCommit": "5d65afa55f0135f2521e3c4a43fd81bb69e2f65f",
   "originGitCommitIsDirty": false,
   "invokedBy": "manual",
-  "requestedVersion": "0.1.0",
-  "sdkVersion": "0.1.0"
+  "sdkVersion": "0.1.1"
 }

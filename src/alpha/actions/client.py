@@ -8,7 +8,6 @@ from ..types.data_response import DataResponse
 from .raw_client import AsyncRawActionsClient, RawActionsClient
 from .types.add_task_request_checklist_item import AddTaskRequestChecklistItem
 from .types.add_task_request_estimate import AddTaskRequestEstimate
-from .types.add_task_request_owner import AddTaskRequestOwner
 from .types.add_task_request_priority import AddTaskRequestPriority
 from .types.export_report_request_dataset import ExportReportRequestDataset
 from .types.export_report_request_format import ExportReportRequestFormat
@@ -17,7 +16,6 @@ from .types.send_email_request_send_as import SendEmailRequestSendAs
 from .types.update_task_request_checklist_item import UpdateTaskRequestChecklistItem
 from .types.update_task_request_estimate import UpdateTaskRequestEstimate
 from .types.update_task_request_identifier import UpdateTaskRequestIdentifier
-from .types.update_task_request_owner import UpdateTaskRequestOwner
 from .types.update_task_request_priority import UpdateTaskRequestPriority
 from .types.update_task_request_status import UpdateTaskRequestStatus
 
@@ -75,7 +73,7 @@ class ActionsClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -94,7 +92,6 @@ class ActionsClient:
         self,
         *,
         title: str,
-        owner: AddTaskRequestOwner,
         vault: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         assignee_name: typing.Optional[str] = OMIT,
@@ -107,14 +104,12 @@ class ActionsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DataResponse:
         """
-        Create a task on the vault's board (owner: 'client' = the counterparty, 'us' = our team). Supports the full kanban surface: assignee, t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
+        Create a task on the vault's board. The owner may be a person's name or a company placeholder. Supports the full kanban surface: t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
 
         Parameters
         ----------
         title : str
             Short actionable title (short and actionable)
-
-        owner : AddTaskRequestOwner
 
         vault : typing.Optional[str]
             Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
@@ -123,7 +118,7 @@ class ActionsClient:
             Optional detail
 
         assignee_name : typing.Optional[str]
-            Person responsible
+            Responsible person or company
 
         estimate : typing.Optional[AddTaskRequestEstimate]
             T-shirt effort size
@@ -150,19 +145,17 @@ class ActionsClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
         )
         client.actions.add_task(
             title="title",
-            owner="client",
         )
         """
         _response = self._raw_client.add_task(
             title=title,
-            owner=owner,
             vault=vault,
             description=description,
             assignee_name=assignee_name,
@@ -185,7 +178,6 @@ class ActionsClient:
         title: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         status: typing.Optional[UpdateTaskRequestStatus] = OMIT,
-        owner: typing.Optional[UpdateTaskRequestOwner] = OMIT,
         assignee_name: typing.Optional[str] = OMIT,
         estimate: typing.Optional[UpdateTaskRequestEstimate] = OMIT,
         priority: typing.Optional[UpdateTaskRequestPriority] = OMIT,
@@ -196,7 +188,7 @@ class ActionsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DataResponse:
         """
-        Edit an existing task. address it by its board identifier (e.g. 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, owner, assignee, t-shirt estimate, priority, labels, checklist, due date, milestone, title, description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
+        Edit an existing task by its board identifier (for example 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, named owner, t-shirt estimate, priority, labels, checklist, due date, milestone, title and description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
 
         Parameters
         ----------
@@ -215,9 +207,8 @@ class ActionsClient:
 
         status : typing.Optional[UpdateTaskRequestStatus]
 
-        owner : typing.Optional[UpdateTaskRequestOwner]
-
         assignee_name : typing.Optional[str]
+            Responsible person or company; null clears it
 
         estimate : typing.Optional[UpdateTaskRequestEstimate]
             T-shirt effort size; null clears it
@@ -246,7 +237,7 @@ class ActionsClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -260,7 +251,6 @@ class ActionsClient:
             title=title,
             description=description,
             status=status,
-            owner=owner,
             assignee_name=assignee_name,
             estimate=estimate,
             priority=priority,
@@ -331,7 +321,7 @@ class ActionsClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -393,7 +383,7 @@ class ActionsClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -440,7 +430,7 @@ class ActionsClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -484,7 +474,7 @@ class ActionsClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -541,7 +531,7 @@ class ActionsClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -616,7 +606,7 @@ class AsyncActionsClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -641,7 +631,6 @@ class AsyncActionsClient:
         self,
         *,
         title: str,
-        owner: AddTaskRequestOwner,
         vault: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         assignee_name: typing.Optional[str] = OMIT,
@@ -654,14 +643,12 @@ class AsyncActionsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DataResponse:
         """
-        Create a task on the vault's board (owner: 'client' = the counterparty, 'us' = our team). Supports the full kanban surface: assignee, t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
+        Create a task on the vault's board. The owner may be a person's name or a company placeholder. Supports the full kanban surface: t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
 
         Parameters
         ----------
         title : str
             Short actionable title (short and actionable)
-
-        owner : AddTaskRequestOwner
 
         vault : typing.Optional[str]
             Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
@@ -670,7 +657,7 @@ class AsyncActionsClient:
             Optional detail
 
         assignee_name : typing.Optional[str]
-            Person responsible
+            Responsible person or company
 
         estimate : typing.Optional[AddTaskRequestEstimate]
             T-shirt effort size
@@ -699,7 +686,7 @@ class AsyncActionsClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -709,7 +696,6 @@ class AsyncActionsClient:
         async def main() -> None:
             await client.actions.add_task(
                 title="title",
-                owner="client",
             )
 
 
@@ -717,7 +703,6 @@ class AsyncActionsClient:
         """
         _response = await self._raw_client.add_task(
             title=title,
-            owner=owner,
             vault=vault,
             description=description,
             assignee_name=assignee_name,
@@ -740,7 +725,6 @@ class AsyncActionsClient:
         title: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         status: typing.Optional[UpdateTaskRequestStatus] = OMIT,
-        owner: typing.Optional[UpdateTaskRequestOwner] = OMIT,
         assignee_name: typing.Optional[str] = OMIT,
         estimate: typing.Optional[UpdateTaskRequestEstimate] = OMIT,
         priority: typing.Optional[UpdateTaskRequestPriority] = OMIT,
@@ -751,7 +735,7 @@ class AsyncActionsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DataResponse:
         """
-        Edit an existing task. address it by its board identifier (e.g. 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, owner, assignee, t-shirt estimate, priority, labels, checklist, due date, milestone, title, description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
+        Edit an existing task by its board identifier (for example 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, named owner, t-shirt estimate, priority, labels, checklist, due date, milestone, title and description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
 
         Parameters
         ----------
@@ -770,9 +754,8 @@ class AsyncActionsClient:
 
         status : typing.Optional[UpdateTaskRequestStatus]
 
-        owner : typing.Optional[UpdateTaskRequestOwner]
-
         assignee_name : typing.Optional[str]
+            Responsible person or company; null clears it
 
         estimate : typing.Optional[UpdateTaskRequestEstimate]
             T-shirt effort size; null clears it
@@ -803,7 +786,7 @@ class AsyncActionsClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -823,7 +806,6 @@ class AsyncActionsClient:
             title=title,
             description=description,
             status=status,
-            owner=owner,
             assignee_name=assignee_name,
             estimate=estimate,
             priority=priority,
@@ -896,7 +878,7 @@ class AsyncActionsClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -966,7 +948,7 @@ class AsyncActionsClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1021,7 +1003,7 @@ class AsyncActionsClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1073,7 +1055,7 @@ class AsyncActionsClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1138,7 +1120,7 @@ class AsyncActionsClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
