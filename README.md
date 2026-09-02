@@ -1,9 +1,9 @@
-# Openantares Python Library
+# Alpha by Antares Python SDK
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fopenantares%2Falpha-python)
 [![pypi](https://img.shields.io/pypi/v/openantares-alpha)](https://pypi.python.org/pypi/openantares-alpha)
 
-The Openantares Python library provides convenient access to the Openantares APIs from Python.
+The Alpha Python SDK provides typed access to the Alpha API by Antares.
 
 ## Table of Contents
 
