@@ -1,6 +1,6 @@
 # Reference
 ## Metadata
-<details><summary><code>client.metadata.<a href="src/openantares/metadata/client.py">get_api_index</a>() -> ApiIndexResponse</code></summary>
+<details><summary><code>client.metadata.<a href="src/alpha/metadata/client.py">get_api_index</a>() -> ApiIndexResponse</code></summary>
 <dl>
 <dd>
 
@@ -13,8 +13,8 @@
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -49,7 +49,7 @@ client.metadata.get_api_index()
 </dl>
 </details>
 
-<details><summary><code>client.metadata.<a href="src/openantares/metadata/client.py">list_tools</a>() -> DataResponse</code></summary>
+<details><summary><code>client.metadata.<a href="src/alpha/metadata/client.py">list_tools</a>() -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -76,8 +76,8 @@ Return the live tool catalog and JSON input schemas used by both the REST API an
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -113,7 +113,7 @@ client.metadata.list_tools()
 </details>
 
 ## Vaults
-<details><summary><code>client.vaults.<a href="src/openantares/vaults/client.py">list_vaults</a>() -> DataResponse</code></summary>
+<details><summary><code>client.vaults.<a href="src/alpha/vaults/client.py">list_vaults</a>() -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -140,8 +140,8 @@ List the vaults the credential holder may access. If more than one vault is retu
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -177,7 +177,7 @@ client.vaults.list_vaults()
 </details>
 
 ## Knowledge
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">suggest_vault_scope</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">suggest_vault_scope</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -204,8 +204,8 @@ Resolve the minimum safe vault scope from the user's recent conversation, using 
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -250,7 +250,7 @@ client.knowledge.suggest_vault_scope(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">search_knowledge</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">search_knowledge</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -277,8 +277,8 @@ Search the discovery knowledge base (departments, people, processes, systems, pr
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -339,7 +339,7 @@ client.knowledge.search_knowledge(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">get_entity</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">get_entity</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -366,8 +366,8 @@ Get one entity in depth: core fields (description, aliases, recency) plus slim d
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -428,7 +428,7 @@ client.knowledge.get_entity(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">search_transcripts</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">search_transcripts</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -455,8 +455,8 @@ Semantic search over the meeting transcripts. Returns the most relevant verbatim
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -509,7 +509,7 @@ client.knowledge.search_transcripts(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_meetings</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_meetings</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -536,8 +536,8 @@ List the discovery meetings (name, date, attendees, extraction status).
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -580,7 +580,7 @@ client.knowledge.list_meetings()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_calendar</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_calendar</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -607,8 +607,8 @@ Project calendar events, recent (45 days back) and scheduled ahead: title, ISO d
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -651,7 +651,7 @@ client.knowledge.list_calendar()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">get_meeting</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">get_meeting</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -678,8 +678,8 @@ Get one meeting: metadata, notes (markdown), and the entities extracted from it 
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -732,7 +732,7 @@ client.knowledge.get_meeting(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_findings</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_findings</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -759,8 +759,8 @@ Paginated findings inventory. Filters: type, source, meetingId (only entities fr
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -859,7 +859,7 @@ client.knowledge.list_findings()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_tasks</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_tasks</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -871,7 +871,7 @@ client.knowledge.list_findings()
 <dl>
 <dd>
 
-Action-plan tasks with the full board surface: id (for update_task), board identifier, t-shirt estimate, priority, labels, checklist, due date and milestone. owner "us" = our team, "client" = the counterparty; status "open" = everything not done.
+Action-plan tasks with the full board surface: id (for update_task), board identifier, named owner, t-shirt estimate, priority, labels, checklist, due date and milestone. status "open" = everything not done.
 </dd>
 </dl>
 </dd>
@@ -886,8 +886,8 @@ Action-plan tasks with the full board surface: id (for update_task), board ident
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -911,14 +911,6 @@ client.knowledge.list_tasks()
 <dd>
 
 **vault:** `typing.Optional[str]` — Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**owner:** `typing.Optional[ListTasksRequestOwner]` 
     
 </dd>
 </dl>
@@ -954,7 +946,7 @@ client.knowledge.list_tasks()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_files</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_files</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -981,8 +973,8 @@ List the project's PUBLIC files (name, description, download URL). Internal file
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1025,7 +1017,7 @@ client.knowledge.list_files()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">get_file</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">get_file</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1052,8 +1044,8 @@ Get one PUBLIC file: metadata, a temporary download URL, and a content excerpt w
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1106,7 +1098,7 @@ client.knowledge.get_file(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_plan_steps</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_plan_steps</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1133,8 +1125,8 @@ The mutual action plan timeline (macro project steps, status, and whether each w
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1177,7 +1169,7 @@ client.knowledge.list_plan_steps()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">changes_since</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">changes_since</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1204,8 +1196,8 @@ What's new since a given moment: entities first seen after it, entities re-menti
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1258,7 +1250,7 @@ client.knowledge.changes_since(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">stats</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">stats</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1285,8 +1277,8 @@ Cheap orientation: entity counts by type, meetings extracted/total, tasks by sta
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1329,7 +1321,7 @@ client.knowledge.stats()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">get_brief</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">get_brief</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1356,8 +1348,8 @@ The latest agent-written brief. kind 'daily' (default) is the current 'what's go
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1408,7 +1400,7 @@ client.knowledge.get_brief()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">get_transcript</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">get_transcript</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1435,8 +1427,8 @@ Read a meeting transcript sequentially in chunks (complements semantic search). 
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1505,7 +1497,7 @@ client.knowledge.get_transcript(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_conflicts</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_conflicts</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1532,8 +1524,8 @@ Contradictions detected across the evidence: pairs of credible claims about the 
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1584,7 +1576,7 @@ client.knowledge.list_conflicts()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_milestones</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_milestones</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1611,8 +1603,8 @@ Project milestones with task tallies (id, title, target date, tasks done/total).
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1655,7 +1647,7 @@ client.knowledge.list_milestones()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">find_person</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">find_person</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1682,8 +1674,8 @@ Look someone up in this vault's people registry: name, e-mail, title, organisati
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1734,7 +1726,7 @@ client.knowledge.find_person()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">list_sent_emails</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">list_sent_emails</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1761,8 +1753,8 @@ Messages this vault's agent already sent, newest first, with the handles needed 
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1821,7 +1813,7 @@ client.knowledge.list_sent_emails()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">find_email_thread</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">find_email_thread</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1848,8 +1840,8 @@ Search the vault's connected Gmail for an existing conversation, including mail 
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -1910,7 +1902,7 @@ client.knowledge.find_email_thread(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">find_artifact</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">find_artifact</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -1937,8 +1929,8 @@ Find a file that already exists in this vault: something the agent generated (ch
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2005,7 +1997,7 @@ client.knowledge.find_artifact()
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">search_agent_memory</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">search_agent_memory</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2032,8 +2024,8 @@ Search the agent's OWN past conversations in this vault. e-mail, MCP and portal 
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2102,7 +2094,7 @@ client.knowledge.search_agent_memory(
 </dl>
 </details>
 
-<details><summary><code>client.knowledge.<a href="src/openantares/knowledge/client.py">expand_graph</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.knowledge.<a href="src/alpha/knowledge/client.py">expand_graph</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2129,8 +2121,8 @@ Graph traversal from an entity: depth 1 = its slim edges; depth 2 = neighborhood
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2192,7 +2184,7 @@ client.knowledge.expand_graph(
 </details>
 
 ## Actions
-<details><summary><code>client.actions.<a href="src/openantares/actions/client.py">resolve_conflict</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.actions.<a href="src/alpha/actions/client.py">resolve_conflict</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2219,8 +2211,8 @@ Close out a contradiction by id (from list_conflicts): status 'resolved' (valida
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2290,7 +2282,7 @@ client.actions.resolve_conflict(
 </dl>
 </details>
 
-<details><summary><code>client.actions.<a href="src/openantares/actions/client.py">add_task</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.actions.<a href="src/alpha/actions/client.py">add_task</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2302,7 +2294,7 @@ client.actions.resolve_conflict(
 <dl>
 <dd>
 
-Create a task on the vault's board (owner: 'client' = the counterparty, 'us' = our team). Supports the full kanban surface: assignee, t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
+Create a task on the vault's board. The owner may be a person's name or a company placeholder. Supports the full kanban surface: t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
 </dd>
 </dl>
 </dd>
@@ -2317,8 +2309,8 @@ Create a task on the vault's board (owner: 'client' = the counterparty, 'us' = o
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2327,7 +2319,6 @@ client = Alpha(
 
 client.actions.add_task(
     title="title",
-    owner="client",
 )
 
 ```
@@ -2352,14 +2343,6 @@ client.actions.add_task(
 <dl>
 <dd>
 
-**owner:** `AddTaskRequestOwner` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **vault:** `typing.Optional[str]` — Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
     
 </dd>
@@ -2376,7 +2359,7 @@ client.actions.add_task(
 <dl>
 <dd>
 
-**assignee_name:** `typing.Optional[str]` — Person responsible
+**assignee_name:** `typing.Optional[str]` — Responsible person or company
     
 </dd>
 </dl>
@@ -2444,7 +2427,7 @@ client.actions.add_task(
 </dl>
 </details>
 
-<details><summary><code>client.actions.<a href="src/openantares/actions/client.py">update_task</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.actions.<a href="src/alpha/actions/client.py">update_task</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2456,7 +2439,7 @@ client.actions.add_task(
 <dl>
 <dd>
 
-Edit an existing task. address it by its board identifier (e.g. 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, owner, assignee, t-shirt estimate, priority, labels, checklist, due date, milestone, title, description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
+Edit an existing task by its board identifier (for example 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, named owner, t-shirt estimate, priority, labels, checklist, due date, milestone, title and description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
 </dd>
 </dl>
 </dd>
@@ -2471,8 +2454,8 @@ Edit an existing task. address it by its board identifier (e.g. 'ACME-5', or jus
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2543,15 +2526,7 @@ client.actions.update_task()
 <dl>
 <dd>
 
-**owner:** `typing.Optional[UpdateTaskRequestOwner]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**assignee_name:** `typing.Optional[str]` 
+**assignee_name:** `typing.Optional[str]` — Responsible person or company; null clears it
     
 </dd>
 </dl>
@@ -2619,7 +2594,7 @@ client.actions.update_task()
 </dl>
 </details>
 
-<details><summary><code>client.actions.<a href="src/openantares/actions/client.py">send_email</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.actions.<a href="src/alpha/actions/client.py">send_email</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2646,8 +2621,8 @@ Send an e-mail from the vault agent's mailbox to a VAULT MEMBER or registered st
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2766,7 +2741,7 @@ client.actions.send_email(
 </dl>
 </details>
 
-<details><summary><code>client.actions.<a href="src/openantares/actions/client.py">export_workbook</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.actions.<a href="src/alpha/actions/client.py">export_workbook</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2793,8 +2768,8 @@ Build a styled multi-sheet Excel workbook (.xlsx) from rows you provide, store i
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2868,7 +2843,7 @@ client.actions.export_workbook(
 </dl>
 </details>
 
-<details><summary><code>client.actions.<a href="src/openantares/actions/client.py">export_report</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.actions.<a href="src/alpha/actions/client.py">export_report</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2895,8 +2870,8 @@ Export a whole dataset from this vault as a file: every finding, or every contra
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -2955,7 +2930,7 @@ client.actions.export_report()
 </dl>
 </details>
 
-<details><summary><code>client.actions.<a href="src/openantares/actions/client.py">render_chart</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.actions.<a href="src/alpha/actions/client.py">render_chart</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -2982,8 +2957,8 @@ Render a chart PNG from a Vega-Lite v5 spec with the data inline, and store it a
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",
@@ -3047,7 +3022,7 @@ client.actions.render_chart(
 </dl>
 </details>
 
-<details><summary><code>client.actions.<a href="src/openantares/actions/client.py">schedule_meeting</a>(...) -> DataResponse</code></summary>
+<details><summary><code>client.actions.<a href="src/alpha/actions/client.py">schedule_meeting</a>(...) -> DataResponse</code></summary>
 <dl>
 <dd>
 
@@ -3074,8 +3049,8 @@ Create a Google Calendar event with a Meet link via the project's connected cale
 <dd>
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     token="<token>",

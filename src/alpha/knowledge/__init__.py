@@ -6,25 +6,25 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .find_artifact_request_kind import FindArtifactRequestKind
-    from .get_brief_request_kind import GetBriefRequestKind
-    from .list_conflicts_request_status import ListConflictsRequestStatus
-    from .list_findings_request_sort import ListFindingsRequestSort
-    from .list_findings_request_source import ListFindingsRequestSource
-    from .list_findings_request_type import ListFindingsRequestType
-    from .list_tasks_request_owner import ListTasksRequestOwner
-    from .list_tasks_request_status import ListTasksRequestStatus
-    from .search_knowledge_request_type import SearchKnowledgeRequestType
+    from .types import (
+        FindArtifactRequestKind,
+        GetBriefRequestKind,
+        ListConflictsRequestStatus,
+        ListFindingsRequestSort,
+        ListFindingsRequestSource,
+        ListFindingsRequestType,
+        ListTasksRequestStatus,
+        SearchKnowledgeRequestType,
+    )
 _dynamic_imports: typing.Dict[str, str] = {
-    "FindArtifactRequestKind": ".find_artifact_request_kind",
-    "GetBriefRequestKind": ".get_brief_request_kind",
-    "ListConflictsRequestStatus": ".list_conflicts_request_status",
-    "ListFindingsRequestSort": ".list_findings_request_sort",
-    "ListFindingsRequestSource": ".list_findings_request_source",
-    "ListFindingsRequestType": ".list_findings_request_type",
-    "ListTasksRequestOwner": ".list_tasks_request_owner",
-    "ListTasksRequestStatus": ".list_tasks_request_status",
-    "SearchKnowledgeRequestType": ".search_knowledge_request_type",
+    "FindArtifactRequestKind": ".types",
+    "GetBriefRequestKind": ".types",
+    "ListConflictsRequestStatus": ".types",
+    "ListFindingsRequestSort": ".types",
+    "ListFindingsRequestSource": ".types",
+    "ListFindingsRequestType": ".types",
+    "ListTasksRequestStatus": ".types",
+    "SearchKnowledgeRequestType": ".types",
 }
 
 
@@ -56,7 +56,6 @@ __all__ = [
     "ListFindingsRequestSort",
     "ListFindingsRequestSource",
     "ListFindingsRequestType",
-    "ListTasksRequestOwner",
     "ListTasksRequestStatus",
     "SearchKnowledgeRequestType",
 ]

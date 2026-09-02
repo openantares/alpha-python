@@ -61,7 +61,7 @@ class Alpha:
 
     Examples
     --------
-    from openantares import Alpha
+    from alpha import Alpha
 
     client = Alpha(
         token="YOUR_TOKEN",
@@ -204,7 +204,7 @@ class AsyncAlpha:
 
     Examples
     --------
-    from openantares import AsyncAlpha
+    from alpha import AsyncAlpha
 
     client = AsyncAlpha(
         token="YOUR_TOKEN",

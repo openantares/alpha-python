@@ -8,7 +8,6 @@ from importlib import import_module
 if typing.TYPE_CHECKING:
     from .add_task_request_checklist_item import AddTaskRequestChecklistItem
     from .add_task_request_estimate import AddTaskRequestEstimate
-    from .add_task_request_owner import AddTaskRequestOwner
     from .add_task_request_priority import AddTaskRequestPriority
     from .export_report_request_dataset import ExportReportRequestDataset
     from .export_report_request_format import ExportReportRequestFormat
@@ -17,13 +16,11 @@ if typing.TYPE_CHECKING:
     from .update_task_request_checklist_item import UpdateTaskRequestChecklistItem
     from .update_task_request_estimate import UpdateTaskRequestEstimate
     from .update_task_request_identifier import UpdateTaskRequestIdentifier
-    from .update_task_request_owner import UpdateTaskRequestOwner
     from .update_task_request_priority import UpdateTaskRequestPriority
     from .update_task_request_status import UpdateTaskRequestStatus
 _dynamic_imports: typing.Dict[str, str] = {
     "AddTaskRequestChecklistItem": ".add_task_request_checklist_item",
     "AddTaskRequestEstimate": ".add_task_request_estimate",
-    "AddTaskRequestOwner": ".add_task_request_owner",
     "AddTaskRequestPriority": ".add_task_request_priority",
     "ExportReportRequestDataset": ".export_report_request_dataset",
     "ExportReportRequestFormat": ".export_report_request_format",
@@ -32,7 +29,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateTaskRequestChecklistItem": ".update_task_request_checklist_item",
     "UpdateTaskRequestEstimate": ".update_task_request_estimate",
     "UpdateTaskRequestIdentifier": ".update_task_request_identifier",
-    "UpdateTaskRequestOwner": ".update_task_request_owner",
     "UpdateTaskRequestPriority": ".update_task_request_priority",
     "UpdateTaskRequestStatus": ".update_task_request_status",
 }
@@ -62,7 +58,6 @@ def __dir__():
 __all__ = [
     "AddTaskRequestChecklistItem",
     "AddTaskRequestEstimate",
-    "AddTaskRequestOwner",
     "AddTaskRequestPriority",
     "ExportReportRequestDataset",
     "ExportReportRequestFormat",
@@ -71,7 +66,6 @@ __all__ = [
     "UpdateTaskRequestChecklistItem",
     "UpdateTaskRequestEstimate",
     "UpdateTaskRequestIdentifier",
-    "UpdateTaskRequestOwner",
     "UpdateTaskRequestPriority",
     "UpdateTaskRequestStatus",
 ]

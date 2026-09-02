@@ -38,7 +38,7 @@ class MetadataClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -64,7 +64,7 @@ class MetadataClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -106,7 +106,7 @@ class AsyncMetadataClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -140,7 +140,7 @@ class AsyncMetadataClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",

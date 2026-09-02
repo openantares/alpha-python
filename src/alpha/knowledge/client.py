@@ -12,7 +12,6 @@ from .types.list_conflicts_request_status import ListConflictsRequestStatus
 from .types.list_findings_request_sort import ListFindingsRequestSort
 from .types.list_findings_request_source import ListFindingsRequestSource
 from .types.list_findings_request_type import ListFindingsRequestType
-from .types.list_tasks_request_owner import ListTasksRequestOwner
 from .types.list_tasks_request_status import ListTasksRequestStatus
 from .types.search_knowledge_request_type import SearchKnowledgeRequestType
 
@@ -56,7 +55,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -100,7 +99,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -146,7 +145,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -184,7 +183,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -217,7 +216,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -248,7 +247,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -286,7 +285,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -347,7 +346,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -371,20 +370,17 @@ class KnowledgeClient:
         self,
         *,
         vault: typing.Optional[str] = OMIT,
-        owner: typing.Optional[ListTasksRequestOwner] = OMIT,
         status: typing.Optional[ListTasksRequestStatus] = OMIT,
         milestone_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DataResponse:
         """
-        Action-plan tasks with the full board surface: id (for update_task), board identifier, t-shirt estimate, priority, labels, checklist, due date and milestone. owner "us" = our team, "client" = the counterparty; status "open" = everything not done.
+        Action-plan tasks with the full board surface: id (for update_task), board identifier, named owner, t-shirt estimate, priority, labels, checklist, due date and milestone. status "open" = everything not done.
 
         Parameters
         ----------
         vault : typing.Optional[str]
             Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
-
-        owner : typing.Optional[ListTasksRequestOwner]
 
         status : typing.Optional[ListTasksRequestStatus]
 
@@ -401,7 +397,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -409,7 +405,7 @@ class KnowledgeClient:
         client.knowledge.list_tasks()
         """
         _response = self._raw_client.list_tasks(
-            vault=vault, owner=owner, status=status, milestone_id=milestone_id, request_options=request_options
+            vault=vault, status=status, milestone_id=milestone_id, request_options=request_options
         )
         return _response.data
 
@@ -434,7 +430,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -472,7 +468,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -505,7 +501,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -539,7 +535,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -572,7 +568,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -610,7 +606,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -656,7 +652,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -698,7 +694,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -729,7 +725,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -767,7 +763,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -809,7 +805,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -851,7 +847,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -901,7 +897,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -949,7 +945,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -995,7 +991,7 @@ class KnowledgeClient:
 
         Examples
         --------
-        from openantares import Alpha
+        from alpha import Alpha
 
         client = Alpha(
             token="YOUR_TOKEN",
@@ -1048,7 +1044,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1102,7 +1098,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1156,7 +1152,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1202,7 +1198,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1243,7 +1239,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1282,7 +1278,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1328,7 +1324,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1399,7 +1395,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1429,20 +1425,17 @@ class AsyncKnowledgeClient:
         self,
         *,
         vault: typing.Optional[str] = OMIT,
-        owner: typing.Optional[ListTasksRequestOwner] = OMIT,
         status: typing.Optional[ListTasksRequestStatus] = OMIT,
         milestone_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DataResponse:
         """
-        Action-plan tasks with the full board surface: id (for update_task), board identifier, t-shirt estimate, priority, labels, checklist, due date and milestone. owner "us" = our team, "client" = the counterparty; status "open" = everything not done.
+        Action-plan tasks with the full board surface: id (for update_task), board identifier, named owner, t-shirt estimate, priority, labels, checklist, due date and milestone. status "open" = everything not done.
 
         Parameters
         ----------
         vault : typing.Optional[str]
             Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
-
-        owner : typing.Optional[ListTasksRequestOwner]
 
         status : typing.Optional[ListTasksRequestStatus]
 
@@ -1461,7 +1454,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1475,7 +1468,7 @@ class AsyncKnowledgeClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.list_tasks(
-            vault=vault, owner=owner, status=status, milestone_id=milestone_id, request_options=request_options
+            vault=vault, status=status, milestone_id=milestone_id, request_options=request_options
         )
         return _response.data
 
@@ -1502,7 +1495,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1548,7 +1541,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1589,7 +1582,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1631,7 +1624,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1672,7 +1665,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1718,7 +1711,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1772,7 +1765,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1822,7 +1815,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1861,7 +1854,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1907,7 +1900,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -1957,7 +1950,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -2009,7 +2002,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -2067,7 +2060,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -2123,7 +2116,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",
@@ -2177,7 +2170,7 @@ class AsyncKnowledgeClient:
         --------
         import asyncio
 
-        from openantares import AsyncAlpha
+        from alpha import AsyncAlpha
 
         client = AsyncAlpha(
             token="YOUR_TOKEN",

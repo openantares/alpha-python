@@ -20,7 +20,6 @@ if typing.TYPE_CHECKING:
     from .actions import (
         AddTaskRequestChecklistItem,
         AddTaskRequestEstimate,
-        AddTaskRequestOwner,
         AddTaskRequestPriority,
         ExportReportRequestDataset,
         ExportReportRequestFormat,
@@ -29,7 +28,6 @@ if typing.TYPE_CHECKING:
         UpdateTaskRequestChecklistItem,
         UpdateTaskRequestEstimate,
         UpdateTaskRequestIdentifier,
-        UpdateTaskRequestOwner,
         UpdateTaskRequestPriority,
         UpdateTaskRequestStatus,
     )
@@ -42,7 +40,6 @@ if typing.TYPE_CHECKING:
         ListFindingsRequestSort,
         ListFindingsRequestSource,
         ListFindingsRequestType,
-        ListTasksRequestOwner,
         ListTasksRequestStatus,
         SearchKnowledgeRequestType,
     )
@@ -50,7 +47,6 @@ if typing.TYPE_CHECKING:
 _dynamic_imports: typing.Dict[str, str] = {
     "AddTaskRequestChecklistItem": ".actions",
     "AddTaskRequestEstimate": ".actions",
-    "AddTaskRequestOwner": ".actions",
     "AddTaskRequestPriority": ".actions",
     "Alpha": ".client",
     "AlphaEnvironment": ".environment",
@@ -73,7 +69,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListFindingsRequestSort": ".knowledge",
     "ListFindingsRequestSource": ".knowledge",
     "ListFindingsRequestType": ".knowledge",
-    "ListTasksRequestOwner": ".knowledge",
     "ListTasksRequestStatus": ".knowledge",
     "NotFoundError": ".errors",
     "ResolveConflictRequestStatus": ".actions",
@@ -84,7 +79,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateTaskRequestChecklistItem": ".actions",
     "UpdateTaskRequestEstimate": ".actions",
     "UpdateTaskRequestIdentifier": ".actions",
-    "UpdateTaskRequestOwner": ".actions",
     "UpdateTaskRequestPriority": ".actions",
     "UpdateTaskRequestStatus": ".actions",
     "__version__": ".version",
@@ -119,7 +113,6 @@ def __dir__():
 __all__ = [
     "AddTaskRequestChecklistItem",
     "AddTaskRequestEstimate",
-    "AddTaskRequestOwner",
     "AddTaskRequestPriority",
     "Alpha",
     "AlphaEnvironment",
@@ -142,7 +135,6 @@ __all__ = [
     "ListFindingsRequestSort",
     "ListFindingsRequestSource",
     "ListFindingsRequestType",
-    "ListTasksRequestOwner",
     "ListTasksRequestStatus",
     "NotFoundError",
     "ResolveConflictRequestStatus",
@@ -153,7 +145,6 @@ __all__ = [
     "UpdateTaskRequestChecklistItem",
     "UpdateTaskRequestEstimate",
     "UpdateTaskRequestIdentifier",
-    "UpdateTaskRequestOwner",
     "UpdateTaskRequestPriority",
     "UpdateTaskRequestStatus",
     "__version__",

@@ -19,7 +19,6 @@ from ..types.data_response import DataResponse
 from ..types.error_response import ErrorResponse
 from .types.add_task_request_checklist_item import AddTaskRequestChecklistItem
 from .types.add_task_request_estimate import AddTaskRequestEstimate
-from .types.add_task_request_owner import AddTaskRequestOwner
 from .types.add_task_request_priority import AddTaskRequestPriority
 from .types.export_report_request_dataset import ExportReportRequestDataset
 from .types.export_report_request_format import ExportReportRequestFormat
@@ -28,7 +27,6 @@ from .types.send_email_request_send_as import SendEmailRequestSendAs
 from .types.update_task_request_checklist_item import UpdateTaskRequestChecklistItem
 from .types.update_task_request_estimate import UpdateTaskRequestEstimate
 from .types.update_task_request_identifier import UpdateTaskRequestIdentifier
-from .types.update_task_request_owner import UpdateTaskRequestOwner
 from .types.update_task_request_priority import UpdateTaskRequestPriority
 from .types.update_task_request_status import UpdateTaskRequestStatus
 from pydantic import ValidationError
@@ -167,7 +165,6 @@ class RawActionsClient:
         self,
         *,
         title: str,
-        owner: AddTaskRequestOwner,
         vault: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         assignee_name: typing.Optional[str] = OMIT,
@@ -180,14 +177,12 @@ class RawActionsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DataResponse]:
         """
-        Create a task on the vault's board (owner: 'client' = the counterparty, 'us' = our team). Supports the full kanban surface: assignee, t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
+        Create a task on the vault's board. The owner may be a person's name or a company placeholder. Supports the full kanban surface: t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
 
         Parameters
         ----------
         title : str
             Short actionable title (short and actionable)
-
-        owner : AddTaskRequestOwner
 
         vault : typing.Optional[str]
             Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
@@ -196,7 +191,7 @@ class RawActionsClient:
             Optional detail
 
         assignee_name : typing.Optional[str]
-            Person responsible
+            Responsible person or company
 
         estimate : typing.Optional[AddTaskRequestEstimate]
             T-shirt effort size
@@ -228,7 +223,6 @@ class RawActionsClient:
                 "vault": vault,
                 "title": title,
                 "description": description,
-                "owner": owner,
                 "assigneeName": assignee_name,
                 "estimate": estimate,
                 "priority": priority,
@@ -328,7 +322,6 @@ class RawActionsClient:
         title: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         status: typing.Optional[UpdateTaskRequestStatus] = OMIT,
-        owner: typing.Optional[UpdateTaskRequestOwner] = OMIT,
         assignee_name: typing.Optional[str] = OMIT,
         estimate: typing.Optional[UpdateTaskRequestEstimate] = OMIT,
         priority: typing.Optional[UpdateTaskRequestPriority] = OMIT,
@@ -339,7 +332,7 @@ class RawActionsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DataResponse]:
         """
-        Edit an existing task. address it by its board identifier (e.g. 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, owner, assignee, t-shirt estimate, priority, labels, checklist, due date, milestone, title, description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
+        Edit an existing task by its board identifier (for example 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, named owner, t-shirt estimate, priority, labels, checklist, due date, milestone, title and description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
 
         Parameters
         ----------
@@ -358,9 +351,8 @@ class RawActionsClient:
 
         status : typing.Optional[UpdateTaskRequestStatus]
 
-        owner : typing.Optional[UpdateTaskRequestOwner]
-
         assignee_name : typing.Optional[str]
+            Responsible person or company; null clears it
 
         estimate : typing.Optional[UpdateTaskRequestEstimate]
             T-shirt effort size; null clears it
@@ -399,7 +391,6 @@ class RawActionsClient:
                 "title": title,
                 "description": description,
                 "status": status,
-                "owner": owner,
                 "assigneeName": assignee_name,
                 "estimate": estimate,
                 "priority": priority,
@@ -1263,7 +1254,6 @@ class AsyncRawActionsClient:
         self,
         *,
         title: str,
-        owner: AddTaskRequestOwner,
         vault: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         assignee_name: typing.Optional[str] = OMIT,
@@ -1276,14 +1266,12 @@ class AsyncRawActionsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DataResponse]:
         """
-        Create a task on the vault's board (owner: 'client' = the counterparty, 'us' = our team). Supports the full kanban surface: assignee, t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
+        Create a task on the vault's board. The owner may be a person's name or a company placeholder. Supports the full kanban surface: t-shirt estimate, priority, labels, checklist, due date and milestone (resolve ids with list_milestones). Requires a manager API key.
 
         Parameters
         ----------
         title : str
             Short actionable title (short and actionable)
-
-        owner : AddTaskRequestOwner
 
         vault : typing.Optional[str]
             Exact vault id or name from list_vaults. Required whenever the key can reach more than one vault; never guess or use one client's vault for another.
@@ -1292,7 +1280,7 @@ class AsyncRawActionsClient:
             Optional detail
 
         assignee_name : typing.Optional[str]
-            Person responsible
+            Responsible person or company
 
         estimate : typing.Optional[AddTaskRequestEstimate]
             T-shirt effort size
@@ -1324,7 +1312,6 @@ class AsyncRawActionsClient:
                 "vault": vault,
                 "title": title,
                 "description": description,
-                "owner": owner,
                 "assigneeName": assignee_name,
                 "estimate": estimate,
                 "priority": priority,
@@ -1424,7 +1411,6 @@ class AsyncRawActionsClient:
         title: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         status: typing.Optional[UpdateTaskRequestStatus] = OMIT,
-        owner: typing.Optional[UpdateTaskRequestOwner] = OMIT,
         assignee_name: typing.Optional[str] = OMIT,
         estimate: typing.Optional[UpdateTaskRequestEstimate] = OMIT,
         priority: typing.Optional[UpdateTaskRequestPriority] = OMIT,
@@ -1435,7 +1421,7 @@ class AsyncRawActionsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DataResponse]:
         """
-        Edit an existing task. address it by its board identifier (e.g. 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, owner, assignee, t-shirt estimate, priority, labels, checklist, due date, milestone, title, description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
+        Edit an existing task by its board identifier (for example 'ACME-5', or just 5; the prefix is whatever this vault uses) or by taskId from list_tasks. Fields: status, named owner, t-shirt estimate, priority, labels, checklist, due date, milestone, title and description. Pass null to clear a clearable field (estimate, dueDate, milestoneId, assigneeName, description). Requires a manager API key.
 
         Parameters
         ----------
@@ -1454,9 +1440,8 @@ class AsyncRawActionsClient:
 
         status : typing.Optional[UpdateTaskRequestStatus]
 
-        owner : typing.Optional[UpdateTaskRequestOwner]
-
         assignee_name : typing.Optional[str]
+            Responsible person or company; null clears it
 
         estimate : typing.Optional[UpdateTaskRequestEstimate]
             T-shirt effort size; null clears it
@@ -1495,7 +1480,6 @@ class AsyncRawActionsClient:
                 "title": title,
                 "description": description,
                 "status": status,
-                "owner": owner,
                 "assigneeName": assignee_name,
                 "estimate": estimate,
                 "priority": priority,

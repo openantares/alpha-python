@@ -8,7 +8,7 @@ import typing
 
 import typing_extensions
 
-from openantares.core.serialization import FieldMetadata
+from alpha.core.serialization import FieldMetadata
 
 
 class Base(typing_extensions.TypedDict):
