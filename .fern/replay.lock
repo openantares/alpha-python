@@ -12,5 +12,495 @@ generations:
     cli_version: unknown
     generator_versions:
       fernapi/fern-python-sdk: 5.29.3
-current_generation: 8f4e1e5fb9d7ef989c64f9c9dfe53dab741c45fe
-patches: []
+  - commit_sha: 310e209ffba04dd68095d46aeccc8c891d79c18a
+    tree_hash: 511256e0d83842ef2dbf5ecfe5ea194b66e4f5a9
+    timestamp: 2026-09-03T03:24:29.612Z
+    cli_version: unknown
+    generator_versions:
+      fernapi/fern-python-sdk: 5.29.3
+current_generation: 310e209ffba04dd68095d46aeccc8c891d79c18a
+patches:
+  - id: patch-01f039fe
+    content_hash: sha256:22f7757167084d9097f7aa080563952c502a1f4a8c645eda1f0c491c32e9dec8
+    original_commit: 01f039fede0d1a53f84856966dd06b351bc61bb6
+    original_message: "docs: identify SDK as Alpha by Antares"
+    original_author: Andrew Correa <andrew@monostate.ai>
+    base_generation: d19576086f2b9400ad09e1f7d0382b12b26d23d3
+    files:
+      - README.md
+      - pyproject.toml
+    patch_content: |+
+      From 01f039fede0d1a53f84856966dd06b351bc61bb6 Mon Sep 17 00:00:00 2001
+      From: Andrew Correa <andrew@monostate.ai>
+      Date: Wed, 2 Sep 2026 20:42:03 -0300
+      Subject: [PATCH] docs: identify SDK as Alpha by Antares
+
+      ---
+       README.md      | 4 ++--
+       pyproject.toml | 2 +-
+       2 files changed, 3 insertions(+), 3 deletions(-)
+
+      diff --git a/README.md b/README.md
+      index 0816070..1e71c13 100644
+      --- a/README.md
+      +++ b/README.md
+      @@ -1,9 +1,9 @@
+      -# Openantares Python Library
+      +# Alpha by Antares Python SDK
+       
+       [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fopenantares%2Falpha-python)
+       [![pypi](https://img.shields.io/pypi/v/openantares-alpha)](https://pypi.python.org/pypi/openantares-alpha)
+       
+      -The Openantares Python library provides convenient access to the Openantares APIs from Python.
+      +The Alpha Python SDK provides typed access to the Alpha API by Antares.
+       
+       ## Table of Contents
+       
+      diff --git a/pyproject.toml b/pyproject.toml
+      index 39181a5..5e9051e 100644
+      --- a/pyproject.toml
+      +++ b/pyproject.toml
+      @@ -5,7 +5,7 @@ dynamic = ["version"]
+       [tool.poetry]
+       name = "openantares-alpha"
+       version = "0.1.1"
+      -description = ""
+      +description = "Official Python SDK for the Alpha API by Antares."
+       readme = "README.md"
+       authors = []
+       keywords = [
+      -- 
+      2.52.0
+
+    theirs_snapshot:
+      README.md: |
+        # Alpha by Antares Python SDK
+
+        [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fopenantares%2Falpha-python)
+        [![pypi](https://img.shields.io/pypi/v/openantares-alpha)](https://pypi.python.org/pypi/openantares-alpha)
+
+        The Alpha Python SDK provides typed access to the Alpha API by Antares.
+
+        ## Table of Contents
+
+        - [Installation](#installation)
+        - [Reference](#reference)
+        - [Usage](#usage)
+        - [Environments](#environments)
+        - [Async Client](#async-client)
+        - [Exception Handling](#exception-handling)
+        - [Advanced](#advanced)
+          - [Access Raw Response Data](#access-raw-response-data)
+          - [Retries](#retries)
+          - [Timeouts](#timeouts)
+          - [Custom Client](#custom-client)
+        - [Contributing](#contributing)
+
+        ## Installation
+
+        ```sh
+        pip install openantares-alpha
+        ```
+
+        ## Reference
+
+        A full reference for this library is available [here](https://github.com/openantares/alpha-python/blob/HEAD/./reference.md).
+
+        ## Usage
+
+        Instantiate and use the client with the following:
+
+        ```python
+        from alpha import Alpha
+
+        client = Alpha(
+            token="<token>",
+        )
+
+        client.knowledge.suggest_vault_scope(
+            conversation="conversation",
+        )
+        ```
+
+        ## Environments
+
+        This SDK allows you to configure different environments for API requests.
+
+        ```python
+        from alpha import Alpha
+        from alpha.environment import AlphaEnvironment
+
+        client = Alpha(
+            environment=AlphaEnvironment.PRODUCTION,
+        )
+        ```
+
+        ## Async Client
+
+        The SDK also exports an `async` client so that you can make non-blocking calls to our API. Note that if you are constructing an Async httpx client class to pass into this client, use `httpx.AsyncClient()` instead of `httpx.Client()` (e.g. for the `httpx_client` parameter of this client).
+
+        ```python
+        import asyncio
+
+        from alpha import AsyncAlpha
+
+        client = AsyncAlpha(
+            token="<token>",
+        )
+
+
+        async def main() -> None:
+            await client.knowledge.suggest_vault_scope(
+                conversation="conversation",
+            )
+
+
+        asyncio.run(main())
+        ```
+
+        ## Exception Handling
+
+        When the API returns a non-success status code (4xx or 5xx response), a subclass of the following error
+        will be thrown.
+
+        ```python
+        from alpha.core.api_error import ApiError
+
+        try:
+            client.knowledge.suggest_vault_scope(...)
+        except ApiError as e:
+            print(e.status_code)
+            print(e.body)
+        ```
+
+        ## Advanced
+
+        ### Access Raw Response Data
+
+        The SDK provides access to raw response data, including headers, through the `.with_raw_response` property.
+        The `.with_raw_response` property returns a "raw" client that can be used to access the `.headers` and `.data` attributes.
+
+        ```python
+        from alpha import Alpha
+
+        client = Alpha(...)
+        response = client.knowledge.with_raw_response.suggest_vault_scope(...)
+        print(response.headers)  # access the response headers
+        print(response.status_code)  # access the response status code
+        print(response.data)  # access the underlying object
+        ```
+
+        ### Retries
+
+        The SDK is instrumented with automatic retries with exponential backoff. A request will be retried as long
+        as the request is deemed retryable and the number of retry attempts has not grown larger than the configured
+        retry limit (default: 2).
+
+        Which status codes are retried depends on the `retryStatusCodes` generator configuration:
+
+        **`legacy`** (current default): retries on
+        - [408](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408) (Timeout)
+        - [409](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409) (Conflict)
+        - [429](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) (Too Many Requests)
+        - [5XX](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses) (All server errors, including 500)
+
+        **`recommended`**: retries on
+        - [408](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408) (Timeout)
+        - [409](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409) (Conflict)
+        - [429](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) (Too Many Requests)
+        - [502](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502) (Bad Gateway)
+        - [503](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503) (Service Unavailable)
+        - [504](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504) (Gateway Timeout)
+
+        Use the `max_retries` request option to configure this behavior.
+
+        ```python
+        client.knowledge.suggest_vault_scope(..., request_options={
+            "max_retries": 1
+        })
+        ```
+
+        ### Timeouts
+
+        The SDK defaults to a 60 second timeout. You can configure this with a timeout option at the client or request level.
+
+        ```python
+        from alpha import Alpha
+
+        client = Alpha(..., timeout=20.0)
+
+        # Override timeout for a specific method
+        client.knowledge.suggest_vault_scope(..., request_options={
+            "timeout": 1
+        })
+        ```
+
+        ### Custom Client
+
+        You can override the `httpx` client to customize it for your use-case. Some common use-cases include support for proxies
+        and transports.
+
+        ```python
+        import httpx
+        from alpha import Alpha
+
+        client = Alpha(
+            ...,
+            httpx_client=httpx.Client(
+                proxy="http://my.test.proxy.example.com",
+                transport=httpx.HTTPTransport(local_address="0.0.0.0"),
+            ),
+        )
+        ```
+
+        ## Contributing
+
+        While we value open-source contributions to this SDK, this library is generated programmatically.
+        Additions made directly to this library would have to be moved over to our generation code,
+        otherwise they would be overwritten upon the next generated release. Feel free to open a PR as
+        a proof of concept, but know that we will not be able to merge it as-is. We suggest opening
+        an issue first to discuss with us!
+
+        On the other hand, contributions to the README are always very welcome!
+      pyproject.toml: |
+        [project]
+        name = "openantares-alpha"
+        dynamic = ["version"]
+
+        [tool.poetry]
+        name = "openantares-alpha"
+        version = "0.1.1"
+        description = "Official Python SDK for the Alpha API by Antares."
+        readme = "README.md"
+        authors = []
+        keywords = [
+            "antares",
+            "alpha",
+            "knowledge",
+            "api",
+            "sdk"
+        ]
+        license = "MIT"
+        classifiers = [
+            "Intended Audience :: Developers",
+            "Programming Language :: Python",
+            "Programming Language :: Python :: 3",
+            "Programming Language :: Python :: 3.10",
+            "Programming Language :: Python :: 3.11",
+            "Programming Language :: Python :: 3.12",
+            "Programming Language :: Python :: 3.13",
+            "Programming Language :: Python :: 3.14",
+            "Programming Language :: Python :: 3.15",
+            "Operating System :: OS Independent",
+            "Operating System :: POSIX",
+            "Operating System :: MacOS",
+            "Operating System :: POSIX :: Linux",
+            "Operating System :: Microsoft :: Windows",
+            "Topic :: Software Development :: Libraries :: Python Modules",
+            "Typing :: Typed",
+            "License :: OSI Approved :: MIT License"
+        ]
+        packages = [
+            { include = "alpha", from = "src"}
+        ]
+
+        [tool.poetry.urls]
+        Documentation = 'https://docs.alpha.openantares.com'
+        Homepage = 'https://openantares.com'
+        Repository = 'https://github.com/openantares/alpha-python'
+
+        [tool.poetry.dependencies]
+        python = "^3.10"
+        aiohttp = { version = ">=3.14.1,<4", optional = true, python = ">=3.10"}
+        httpx = ">=0.21.2"
+        httpx-aiohttp = { version = "^0.1.8", optional = true, python = ">=3.10"}
+        pydantic = ">= 1.9.2"
+        pydantic-core = ">=2.18.2,<3.0.0"
+        typing_extensions = ">= 4.0.0"
+
+        [tool.poetry.group.dev.dependencies]
+        mypy = "==1.13.0"
+        pytest = "^9.0.3"
+        pytest-asyncio = "^1.0.0"
+        pytest-xdist = "^3.6.1"
+        python-dateutil = "^2.9.0"
+        types-python-dateutil = "^2.9.0.20240316"
+        urllib3 = ">=2.6.3,<3.0.0"
+        ruff = "==0.11.5"
+
+        [tool.pytest.ini_options]
+        testpaths = [ "tests" ]
+        asyncio_mode = "auto"
+        norecursedirs = [ "src" ]
+        markers = [
+            "aiohttp: tests that require httpx_aiohttp to be installed",
+        ]
+
+        [tool.mypy]
+        plugins = ["pydantic.mypy"]
+
+        [tool.ruff]
+        line-length = 120
+
+        [tool.ruff.lint]
+        select = [
+            "E",  # pycodestyle errors
+            "F",  # pyflakes
+            "I",  # isort
+        ]
+        ignore = [
+            "E402",  # Module level import not at top of file
+            "E501",  # Line too long
+            "E711",  # Comparison to `None` should be `cond is not None`
+            "E712",  # Avoid equality comparisons to `True`; use `if ...:` checks
+            "E721",  # Use `is` and `is not` for type comparisons, or `isinstance()` for insinstance checks
+            "E722",  # Do not use bare `except`
+            "E731",  # Do not assign a `lambda` expression, use a `def`
+            "F821",  # Undefined name
+            "F841"   # Local variable ... is assigned to but never used
+        ]
+
+        [tool.ruff.lint.isort]
+        section-order = ["future", "standard-library", "third-party", "first-party"]
+
+        [build-system]
+        requires = ["poetry-core"]
+        build-backend = "poetry.core.masonry.api"
+
+        [tool.poetry.extras]
+        aiohttp=["aiohttp", "httpx-aiohttp"]
+    status: unresolved
+  - id: patch-cd616e3d
+    content_hash: sha256:e0bf6d67ac1589d1d7e15bd966061fd3b4fee92dda19845df5d0e4c4a6722a8e
+    original_commit: cd616e3de4647b48c8197c0da43438566ef80cdb
+    original_message: "ci: link releases to the Alpha PyPI package"
+    original_author: Andrew Correa <andrew@monostate.ai>
+    base_generation: 310e209ffba04dd68095d46aeccc8c891d79c18a
+    files:
+      - .github/workflows/ci.yml
+    patch_content: |
+      diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+      index 300abfb..63db17d 100644
+      --- a/.github/workflows/ci.yml
+      +++ b/.github/workflows/ci.yml
+      @@ -64,6 +64,11 @@ jobs:
+               run: poetry install
+             - name: Build package
+               run: poetry build
+      +      - name: Verify the wheel as a consumer
+      +        run: |
+      +          python -m venv /tmp/alpha-sdk-consumer
+      +          /tmp/alpha-sdk-consumer/bin/pip install dist/*.whl
+      +          /tmp/alpha-sdk-consumer/bin/python -c "from alpha import Alpha, AsyncAlpha; Alpha(token='test'); AsyncAlpha(token='test')"
+             - name: Store the distribution packages
+               uses: actions/upload-artifact@v4
+               with:
+      @@ -77,7 +82,7 @@ jobs:
+           runs-on: ubuntu-latest
+           environment:
+             name: pypi
+      -      url: https://pypi.org/p/${{ github.event.repository.name }}
+      +      url: https://pypi.org/project/openantares-alpha/
+           permissions:
+             contents: read   # Required for checkout
+             id-token: write  # Required for OIDC
+    theirs_snapshot:
+      .github/workflows/ci.yml: |
+        name: ci
+
+        on: [push]
+
+        concurrency:
+          group: ${{ github.workflow }}-${{ github.ref }}
+          cancel-in-progress: false
+
+        jobs:
+          compile:
+            runs-on: ubuntu-latest
+            steps:
+              - name: Checkout repo
+                uses: actions/checkout@v4
+              - name: Set up python
+                uses: actions/setup-python@v4
+                with:
+                  python-version: "3.10"
+              - name: Bootstrap poetry
+                run: |
+                  curl -sSL https://install.python-poetry.org | python - -y --version 1.5.1
+              - name: Install dependencies
+                run: poetry install
+              - name: Compile
+                run: poetry run mypy .
+          test:
+            runs-on: ubuntu-latest
+            steps:
+              - name: Checkout repo
+                uses: actions/checkout@v4
+              - name: Set up python
+                uses: actions/setup-python@v4
+                with:
+                  python-version: "3.10"
+              - name: Bootstrap poetry
+                run: |
+                  curl -sSL https://install.python-poetry.org | python - -y --version 1.5.1
+              - name: Install dependencies
+                run: poetry install
+
+              - name: Test
+                run: poetry run pytest -rP -n auto .
+
+              - name: Install aiohttp extra
+                run: poetry install --extras aiohttp
+
+              - name: Test (aiohttp)
+                run: poetry run pytest -rP -n auto -m aiohttp .
+
+          build:
+            name: Build distribution
+            runs-on: ubuntu-latest
+            steps:
+              - name: Checkout repo
+                uses: actions/checkout@v4
+              - name: Set up python
+                uses: actions/setup-python@v4
+                with:
+                  python-version: "3.10"
+              - name: Bootstrap poetry
+                run: |
+                  curl -sSL https://install.python-poetry.org | python - -y --version 1.5.1
+              - name: Install dependencies
+                run: poetry install
+              - name: Build package
+                run: poetry build
+              - name: Verify the wheel as a consumer
+                run: |
+                  python -m venv /tmp/alpha-sdk-consumer
+                  /tmp/alpha-sdk-consumer/bin/pip install dist/*.whl
+                  /tmp/alpha-sdk-consumer/bin/python -c "from alpha import Alpha, AsyncAlpha; Alpha(token='test'); AsyncAlpha(token='test')"
+              - name: Store the distribution packages
+                uses: actions/upload-artifact@v4
+                with:
+                  name: python-package-distributions
+                  path: dist/
+
+          publish:
+            name: Publish to PyPI
+            needs: [compile, test, build]
+            if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+            runs-on: ubuntu-latest
+            environment:
+              name: pypi
+              url: https://pypi.org/project/openantares-alpha/
+            permissions:
+              contents: read   # Required for checkout
+              id-token: write  # Required for OIDC
+            steps:
+              - name: Download all the dists
+                uses: actions/download-artifact@v4
+                with:
+                  name: python-package-distributions
+                  path: dist/
+              - name: Publish to pypi with attestations
+                uses: pypa/gh-action-pypi-publish@release/v1
+                with:
+                  repository-url: https://upload.pypi.org/legacy/

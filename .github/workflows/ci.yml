@@ -64,6 +64,11 @@ jobs:
         run: poetry install
       - name: Build package
         run: poetry build
+      - name: Verify the wheel as a consumer
+        run: |
+          python -m venv /tmp/alpha-sdk-consumer
+          /tmp/alpha-sdk-consumer/bin/pip install dist/*.whl
+          /tmp/alpha-sdk-consumer/bin/python -c "from alpha import Alpha, AsyncAlpha; Alpha(token='test'); AsyncAlpha(token='test')"
       - name: Store the distribution packages
         uses: actions/upload-artifact@v4
         with:
@@ -77,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/${{ github.event.repository.name }}
+      url: https://pypi.org/project/openantares-alpha/
     permissions:
       contents: read   # Required for checkout
       id-token: write  # Required for OIDC
