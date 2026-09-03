@@ -6,8 +6,9 @@
     "package_name": "alpha",
     "client_class_name": "Alpha"
   },
-  "originGitCommit": "5d65afa55f0135f2521e3c4a43fd81bb69e2f65f",
+  "originGitCommit": "47948ac413cc49a4c28bdb8a3081fade0d1f401f",
   "originGitCommitIsDirty": false,
-  "invokedBy": "manual",
-  "sdkVersion": "0.1.1"
+  "invokedBy": "ci",
+  "ciProvider": "github",
+  "sdkVersion": "0.1.2"
 }

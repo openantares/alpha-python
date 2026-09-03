@@ -33,12 +33,12 @@ class BaseClientWrapper:
         import platform
 
         headers: typing.Dict[str, str] = {
-            "User-Agent": "openantares-alpha/0.1.1",
+            "User-Agent": "openantares-alpha/0.1.2",
             "X-Fern-Language": "Python",
             "X-Fern-Runtime": f"python/{platform.python_version()}",
             "X-Fern-Platform": f"{platform.system().lower()}/{platform.release()}",
             "X-Fern-SDK-Name": "openantares-alpha",
-            "X-Fern-SDK-Version": "0.1.1",
+            "X-Fern-SDK-Version": "0.1.2",
             **(self.get_custom_headers() or {}),
         }
         token = self._get_token()
