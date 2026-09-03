@@ -11,12 +11,12 @@ def test_search_sends_bearer_token_and_explicit_vault_scope() -> None:
         assert request.url.path == "/v1/tools/search_knowledge"
         assert request.headers["authorization"] == "Bearer alpha_test_key"
         assert json.loads(request.content) == {
-            "query": "Eduardo",
-            "vault": "vault_azzas",
+            "query": "Sample Contact",
+            "vault": "vault_example",
         }
         return httpx.Response(
             200,
-            json={"data": [{"id": "person_eduardo", "name": "Eduardo Maia"}]},
+            json={"data": [{"id": "person_sample", "name": "Sample Contact"}]},
         )
 
     transport = httpx.MockTransport(handle)
@@ -28,11 +28,11 @@ def test_search_sends_bearer_token_and_explicit_vault_scope() -> None:
             token="alpha_test_key",
         )
         response = client.knowledge.search_knowledge(
-            query="Eduardo",
-            vault="vault_azzas",
+            query="Sample Contact",
+            vault="vault_example",
         )
 
-    assert response.data == [{"id": "person_eduardo", "name": "Eduardo Maia"}]
+    assert response.data == [{"id": "person_sample", "name": "Sample Contact"}]
 
 
 def test_add_task_sends_named_owner_without_the_retired_side_field() -> None:
@@ -41,10 +41,10 @@ def test_add_task_sends_named_owner_without_the_retired_side_field() -> None:
         assert request.url.path == "/v1/tools/add_task"
         assert json.loads(request.content) == {
             "title": "Confirm launch owner",
-            "vault": "vault_northstar",
-            "assigneeName": "Jordan Lee",
+            "vault": "vault_example",
+            "assigneeName": "Example Owner",
         }
-        return httpx.Response(200, json={"data": {"identifier": "NS-9"}})
+        return httpx.Response(200, json={"data": {"identifier": "EX-9"}})
 
     transport = httpx.MockTransport(handle)
     with httpx.Client(transport=transport) as http_client:
@@ -56,8 +56,8 @@ def test_add_task_sends_named_owner_without_the_retired_side_field() -> None:
         )
         response = client.actions.add_task(
             title="Confirm launch owner",
-            vault="vault_northstar",
-            assignee_name="Jordan Lee",
+            vault="vault_example",
+            assignee_name="Example Owner",
         )
 
-    assert response.data == {"identifier": "NS-9"}
+    assert response.data == {"identifier": "EX-9"}
