@@ -1,10 +1,10 @@
 [project]
-name = "openantares"
+name = "openantares-alpha"
 dynamic = ["version"]
 
 [tool.poetry]
-name = "openantares"
-version = "0.1.0"
+name = "openantares-alpha"
+version = "0.1.2"
 description = ""
 readme = "README.md"
 authors = []
@@ -36,11 +36,11 @@ classifiers = [
     "License :: OSI Approved :: MIT License"
 ]
 packages = [
-    { include = "openantares", from = "src"}
+    { include = "alpha", from = "src"}
 ]
 
 [tool.poetry.urls]
-Documentation = 'https://alpha-506400.docs.buildwithfern.com'
+Documentation = 'https://docs.alpha.openantares.com'
 Homepage = 'https://openantares.com'
 Repository = 'https://github.com/openantares/alpha-python'
 

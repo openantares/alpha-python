@@ -6,27 +6,23 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .types import (
-        FindArtifactRequestKind,
-        GetBriefRequestKind,
-        ListConflictsRequestStatus,
-        ListFindingsRequestSort,
-        ListFindingsRequestSource,
-        ListFindingsRequestType,
-        ListTasksRequestOwner,
-        ListTasksRequestStatus,
-        SearchKnowledgeRequestType,
-    )
+    from .find_artifact_request_kind import FindArtifactRequestKind
+    from .get_brief_request_kind import GetBriefRequestKind
+    from .list_conflicts_request_status import ListConflictsRequestStatus
+    from .list_findings_request_sort import ListFindingsRequestSort
+    from .list_findings_request_source import ListFindingsRequestSource
+    from .list_findings_request_type import ListFindingsRequestType
+    from .list_tasks_request_status import ListTasksRequestStatus
+    from .search_knowledge_request_type import SearchKnowledgeRequestType
 _dynamic_imports: typing.Dict[str, str] = {
-    "FindArtifactRequestKind": ".types",
-    "GetBriefRequestKind": ".types",
-    "ListConflictsRequestStatus": ".types",
-    "ListFindingsRequestSort": ".types",
-    "ListFindingsRequestSource": ".types",
-    "ListFindingsRequestType": ".types",
-    "ListTasksRequestOwner": ".types",
-    "ListTasksRequestStatus": ".types",
-    "SearchKnowledgeRequestType": ".types",
+    "FindArtifactRequestKind": ".find_artifact_request_kind",
+    "GetBriefRequestKind": ".get_brief_request_kind",
+    "ListConflictsRequestStatus": ".list_conflicts_request_status",
+    "ListFindingsRequestSort": ".list_findings_request_sort",
+    "ListFindingsRequestSource": ".list_findings_request_source",
+    "ListFindingsRequestType": ".list_findings_request_type",
+    "ListTasksRequestStatus": ".list_tasks_request_status",
+    "SearchKnowledgeRequestType": ".search_knowledge_request_type",
 }
 
 
@@ -58,7 +54,6 @@ __all__ = [
     "ListFindingsRequestSort",
     "ListFindingsRequestSource",
     "ListFindingsRequestType",
-    "ListTasksRequestOwner",
     "ListTasksRequestStatus",
     "SearchKnowledgeRequestType",
 ]

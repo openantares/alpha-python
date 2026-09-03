@@ -9,7 +9,6 @@ if typing.TYPE_CHECKING:
     from .types import (
         AddTaskRequestChecklistItem,
         AddTaskRequestEstimate,
-        AddTaskRequestOwner,
         AddTaskRequestPriority,
         ExportReportRequestDataset,
         ExportReportRequestFormat,
@@ -18,14 +17,12 @@ if typing.TYPE_CHECKING:
         UpdateTaskRequestChecklistItem,
         UpdateTaskRequestEstimate,
         UpdateTaskRequestIdentifier,
-        UpdateTaskRequestOwner,
         UpdateTaskRequestPriority,
         UpdateTaskRequestStatus,
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "AddTaskRequestChecklistItem": ".types",
     "AddTaskRequestEstimate": ".types",
-    "AddTaskRequestOwner": ".types",
     "AddTaskRequestPriority": ".types",
     "ExportReportRequestDataset": ".types",
     "ExportReportRequestFormat": ".types",
@@ -34,7 +31,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateTaskRequestChecklistItem": ".types",
     "UpdateTaskRequestEstimate": ".types",
     "UpdateTaskRequestIdentifier": ".types",
-    "UpdateTaskRequestOwner": ".types",
     "UpdateTaskRequestPriority": ".types",
     "UpdateTaskRequestStatus": ".types",
 }
@@ -64,7 +60,6 @@ def __dir__():
 __all__ = [
     "AddTaskRequestChecklistItem",
     "AddTaskRequestEstimate",
-    "AddTaskRequestOwner",
     "AddTaskRequestPriority",
     "ExportReportRequestDataset",
     "ExportReportRequestFormat",
@@ -73,7 +68,6 @@ __all__ = [
     "UpdateTaskRequestChecklistItem",
     "UpdateTaskRequestEstimate",
     "UpdateTaskRequestIdentifier",
-    "UpdateTaskRequestOwner",
     "UpdateTaskRequestPriority",
     "UpdateTaskRequestStatus",
 ]

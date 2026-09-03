@@ -4,7 +4,7 @@
 
 import typing_extensions
 
-from openantares.core.serialization import FieldMetadata
+from alpha.core.serialization import FieldMetadata
 
 
 class CircleParams(typing_extensions.TypedDict):

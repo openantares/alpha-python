@@ -1,7 +1,7 @@
 # Openantares Python Library
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fopenantares%2Falpha-python)
-[![pypi](https://img.shields.io/pypi/v/openantares)](https://pypi.python.org/pypi/openantares)
+[![pypi](https://img.shields.io/pypi/v/openantares-alpha)](https://pypi.python.org/pypi/openantares-alpha)
 
 The Openantares Python library provides convenient access to the Openantares APIs from Python.
 
@@ -23,7 +23,7 @@ The Openantares Python library provides convenient access to the Openantares API
 ## Installation
 
 ```sh
-pip install openantares
+pip install openantares-alpha
 ```
 
 ## Reference
@@ -35,7 +35,7 @@ A full reference for this library is available [here](https://github.com/openant
 Instantiate and use the client with the following:
 
 ```python
-from openantares import Alpha
+from alpha import Alpha
 
 client = Alpha(
     token="<token>",
@@ -51,8 +51,8 @@ client.knowledge.suggest_vault_scope(
 This SDK allows you to configure different environments for API requests.
 
 ```python
-from openantares import Alpha
-from openantares.environment import AlphaEnvironment
+from alpha import Alpha
+from alpha.environment import AlphaEnvironment
 
 client = Alpha(
     environment=AlphaEnvironment.PRODUCTION,
@@ -66,7 +66,7 @@ The SDK also exports an `async` client so that you can make non-blocking calls t
 ```python
 import asyncio
 
-from openantares import AsyncAlpha
+from alpha import AsyncAlpha
 
 client = AsyncAlpha(
     token="<token>",
@@ -88,7 +88,7 @@ When the API returns a non-success status code (4xx or 5xx response), a subclass
 will be thrown.
 
 ```python
-from openantares.core.api_error import ApiError
+from alpha.core.api_error import ApiError
 
 try:
     client.knowledge.suggest_vault_scope(...)
@@ -105,7 +105,7 @@ The SDK provides access to raw response data, including headers, through the `.w
 The `.with_raw_response` property returns a "raw" client that can be used to access the `.headers` and `.data` attributes.
 
 ```python
-from openantares import Alpha
+from alpha import Alpha
 
 client = Alpha(...)
 response = client.knowledge.with_raw_response.suggest_vault_scope(...)
@@ -149,7 +149,7 @@ client.knowledge.suggest_vault_scope(..., request_options={
 The SDK defaults to a 60 second timeout. You can configure this with a timeout option at the client or request level.
 
 ```python
-from openantares import Alpha
+from alpha import Alpha
 
 client = Alpha(..., timeout=20.0)
 
@@ -166,7 +166,7 @@ and transports.
 
 ```python
 import httpx
-from openantares import Alpha
+from alpha import Alpha
 
 client = Alpha(
     ...,
